@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'">
+<title>Maptrail</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">M</div>
+      <div>
+        <div class="brand-name">Maptrail</div>
+        <div class="brand-sub">Sitemap generator</div>
+      </div>
+    </div>
+    <div class="sidebar-title">Past crawls</div>
+    <div id="history" class="history"></div>
+    <div class="sidebar-footer">Pay once. Own it forever.</div>
+  </aside>
+
+  <main class="main">
+    <section class="config card">
+      <div class="config-row">
+        <input id="url" type="url" placeholder="https://example.com" spellcheck="false">
+        <button id="start" class="btn primary">Start crawl</button>
+        <button id="cancel" class="btn danger" hidden>Cancel</button>
+      </div>
+      <div class="config-row small">
+        <label>Depth <input id="depth" type="number" min="0" max="20" value="5"></label>
+        <label>Max pages <input id="maxPages" type="number" min="1" max="200000" value="500"></label>
+        <button id="advToggle" class="btn ghost">Advanced ▾</button>
+      </div>
+      <div id="adv" class="adv" hidden>
+        <label class="stack">Include patterns (one per line, substring or /regex/)
+          <textarea id="include" rows="2" placeholder="/blog/"></textarea>
+        </label>
+        <label class="stack">Exclude patterns
+          <textarea id="exclude" rows="2" placeholder="?sort=&#10;/tag/"></textarea>
+        </label>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat card"><div class="stat-num" id="statCrawled">0</div><div class="stat-label">Crawled</div></div>
+      <div class="stat card"><div class="stat-num" id="statQueued">0</div><div class="stat-label">Queued</div></div>
+      <div class="stat card"><div class="stat-num ok" id="statOk">0</div><div class="stat-label">2xx</div></div>
+      <div class="stat card"><div class="stat-num warn" id="statRedirect">0</div><div class="stat-label">3xx</div></div>
+      <div class="stat card"><div class="stat-num err" id="statErr">0</div><div class="stat-label">4xx/5xx</div></div>
+      <div class="stat card"><div class="stat-num warn" id="statNoindex">0</div><div class="stat-label">Noindex</div></div>
+    </section>
+
+    <section class="card table-wrap">
+      <div class="table-scroll">
+        <table id="results">
+          <thead>
+            <tr><th>Status</th><th>URL</th><th>Title</th><th>Meta desc</th><th>Words</th><th>Canonical</th><th>Flags</th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div id="empty" class="empty">Enter a URL and hit <b>Start crawl</b>. Everything runs locally on your machine.</div>
+    </section>
+
+    <section class="export card">
+      <label><input type="checkbox" id="expXml" checked> sitemap.xml <span class="hint">(auto-splits at 50k URLs)</span></label>
+      <label><input type="checkbox" id="expHtml" checked> sitemap.html</label>
+      <label><input type="checkbox" id="expCsv" checked> crawl-report.csv</label>
+      <span class="spacer"></span>
+      <span id="exportMsg" class="export-msg"></span>
+      <button id="export" class="btn primary">Export…</button>
+    </section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

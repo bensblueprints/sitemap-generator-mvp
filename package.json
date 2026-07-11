@@ -1,0 +1,39 @@
+{
+  "name": "maptrail",
+  "productName": "Maptrail",
+  "version": "1.0.0",
+  "description": "Desktop website crawler that generates XML/HTML sitemaps and full crawl reports. Pay once, own it forever.",
+  "main": "main.js",
+  "author": "Ben (bensblueprints)",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/smoke.js",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "build": {
+    "appId": "com.onetimesuite.maptrail",
+    "productName": "Maptrail",
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "renderer/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "menuCategory": "OneTimeSuite"
+    }
+  }
+}
