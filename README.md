@@ -12,7 +12,7 @@ Screaming Frog charges **£199/year, forever**, for a crawler most people use to
 
 Don't want to touch a terminal? Grab the packaged Windows installer (and support development):
 
-**→ [Get Maptrail on Whop](https://whop.com/onetime-suite)** — pay once, own it forever.
+**→ [Get Maptrail on Whop](https://whop.com/benjisaiempire/maptrail)** — pay once, own it forever.
 
 ## Features
 
