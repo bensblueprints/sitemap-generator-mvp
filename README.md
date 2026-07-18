@@ -1,5 +1,9 @@
 # 🗺️ Maptrail
 
+## Demo
+
+VIDEO-PLACEHOLDER
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 **The desktop website crawler and sitemap generator you buy once and own forever.** Point it at a URL, crawl the whole site locally, and get a standards-compliant `sitemap.xml` (auto-split into a sitemap index at 50,000 URLs), a human-readable `sitemap.html`, and a full CSV SEO report — titles, meta descriptions, status codes, word counts, canonicals, noindex flags. 100% local, zero subscription, zero cloud, zero telemetry.
