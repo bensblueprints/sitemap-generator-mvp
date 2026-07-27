@@ -5,6 +5,7 @@ const fs = require('fs');
 const { crawl } = require('./src/crawler');
 const { buildSitemapFiles, buildSitemapHtml, buildCsv, indexablePages } = require('./src/sitemap');
 const { createStore } = require('./src/store');
+const { gateLicense, registerLicenseIpc } = require('./license-gate');
 
 let win = null;
 let store = null;
@@ -48,7 +49,9 @@ function createWindow() {
   }
 }
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  if (!(await gateLicense())) return; // quit already requested
+  registerLicenseIpc();
   store = createStore(path.join(app.getPath('userData'), 'data'));
   createWindow();
   app.on('activate', () => {
