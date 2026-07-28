@@ -1,7 +1,7 @@
 {
   "name": "maptrail",
   "productName": "Maptrail",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "Desktop website crawler that generates XML/HTML sitemaps and full crawl reports. Pay once, own it forever.",
   "main": "main.js",
   "author": "Ben (bensblueprints)",
@@ -24,9 +24,6 @@
     "files": [
       "main.js",
       "preload.js",
-      "whop-license.js",
-      "license-gate.js",
-      "whop-license.config.json",
       "src/**/*",
       "renderer/**/*"
     ],
